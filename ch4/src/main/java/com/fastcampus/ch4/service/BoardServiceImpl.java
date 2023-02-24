@@ -24,6 +24,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public int write(BoardDto boardDto) throws Exception {
+//    	throw new Exception();
         return boardDao.insert(boardDto);
     }
 
@@ -49,5 +50,17 @@ public class BoardServiceImpl implements BoardService {
     public int modify(BoardDto boardDto) throws Exception {
         return boardDao.update(boardDto);
     }
+    
+    @Override
+    public List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception {
+    	return boardDao.searchSelectPage(sc);
+    }
+    
+    @Override
+    public int searchResultCnt(SearchCondition sc) throws Exception {
+    	return boardDao.searchResultCnt(sc);
+    }
+    
+    
 
 }

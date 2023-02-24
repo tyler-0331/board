@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fastcampus.ch4.domain.BoardDto;
+import com.fastcampus.ch4.domain.SearchCondition;
 
 public interface BoardDao {
 
@@ -25,4 +26,9 @@ public interface BoardDao {
 
 	int increaseViewCnt(Integer bno) throws Exception; // int update(String statement, Object parameter)
 
+	List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception;
+	
+	int searchResultCnt(SearchCondition sc) throws Exception;
+
+	int updateCommentCnt(Integer bno, int cnt);
 }

@@ -7,8 +7,8 @@
 <body>
     <h2>{name:"abc", age:10}</h2>
     <button id="sendBtn" type="button">SEND</button>
-    <h2>Data From Server :</h2>
     <div id="data"></div>
+    <h2>Data From Server :</h2>
     <script>
         $(document).ready(function(){
             let person = {name:"abc", age:10};
@@ -21,6 +21,7 @@
                     dataType : 'text', // 전송받을 데이터의 타입
                     data : JSON.stringify(person),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
                     success : function(result){
+                    	console.log(result);
                         person2 = JSON.parse(result);    // 서버로부터 응답이 도착하면 호출될 함수
                         alert("received="+result);       // result는 서버가 전송한 데이터
                         $("#data").html("name="+person2.name+", age="+person2.age);
